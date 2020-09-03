@@ -1,6 +1,6 @@
 $fn = 200;
-squircleCube(20, 30, 2, 50);
-*roundedCube(20, 30, 6, 50);
+#squircleCube(20, 30, 5, 50);
+roundedCube(20, 30, 6, 50);
 
 module squircleCube(x, y, n, h)
 {
