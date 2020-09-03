@@ -1,5 +1,5 @@
 $fn = 200;
-#squircleCube(20, 30, 5, 50);
+*squircleCube(20, 30, 5, 50);
 roundedCube(20, 30, 6, 50);
 
 module squircleCube(x, y, n, h)
@@ -32,32 +32,32 @@ module squircleCube(x, y, n, h)
 
 module roundedCube(x, y, r, h)
 {
+	linear_extrude(height = h)
 	render()
 	difference()
 	{
-		cube([x, y, h]);	
-		render()
+		square([x, y]);
 		difference()
 		{			
-			cube([x, y, h]);
+			square([x, y]);
 			
-			translate([0, r, 0])
-			cube([x, y - 2 * r, h]);
-		
-			translate([r, 0, 0])
-			cube([x - 2 * r, y, h]);
+			translate([0, r])
+			square([x, y - 2 * r]);
 			
-			translate([r, r, 0])
-			cylinder(r = r, h = h);
+			translate([r, 0])
+			square([x - 2 * r, y]);
 			
-			translate([r, y - r, 0])
-			cylinder(r = r, h = h);
+			translate([r, r])
+			circle(r = r);
+			
+			translate([r, y - r])
+			circle(r = r);
 					
-			translate([x - r, r, 0])
-			cylinder(r = r, h = h);
+			translate([x - r, r])
+			circle(r = r);
 			
-			translate([x - r, y - r, 0])
-			cylinder(r = r, h = h);
+			translate([x - r, y - r])
+			circle(r = r);
 		}
 	}
 }
